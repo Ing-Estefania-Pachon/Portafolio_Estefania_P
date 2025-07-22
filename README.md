@@ -1,41 +1,36 @@
-# ✨ Portafolio de Estefanía 👩‍💻
+# 👋 ¡Hola! Soy Estefanía Pachón
 
-¡Hola! Soy Estefanía, desarrolladora Full Stack en formación con pasión por el diseño web, la lógica de programación y las soluciones creativas. Este es mi portafolio personal donde podrás conocer mis proyectos, habilidades y cómo contactarme.
-
----
-
-## 🛠️ Tecnologías que manejo
-
-- HTML5 / CSS / JavaScript
-- Java 
-- Git / GitHub
-- Power Platform (Power Apps, Power Automate)
-- Python (básico)
+💻 Desarrolladora Full Stack en formación  
+🌱 Apasionada por la tecnología, el diseño web y el aprendizaje continuo.  
+🎯 Actualmente trabajando en proyectos con Java, Spring Boot, HTML, CSS y JavaScript.
 
 ---
 
-## 🚀 Proyectos destacados //Ejemplos
+## 🚀 Proyectos destacados
 
-| Proyecto | Descripción | Tecnologías | Enlace |
-|---------|-------------|-------------|--------|
-| 🛒 **E-Commerce** | Tienda virtual con carrito y login | HTML, CSS, JS, LocalStorage | [Ver repositorio](https://github.com/TU-USUARIO/proyecto-ecommerce) |
-| 🌐 **Landing Page** | Página estática responsiva | HTML, CSS, Bootstrap | [Ver repositorio](https://github.com/TU-USUARIO/landing-page) |
-| 📚 **Gestor de Tareas** | CRUD de tareas con almacenamiento | JS, Bootstrap, localStorage | [Ver repositorio](https://github.com/TU-USUARIO/gestor-tareas) |
-
-🔗 *Y más proyectos próximamente...*
+- 🛒 [E-Commerce FullStack](https://github.com/Ing-Estefania-Pachon/proyecto-ecommerce)
+- 🌐 [Landing Page HTML + CSS](https://github.com/Ing-Estefania-Pachon/landing-page)
+- 📋 [Gestor de tareas](https://github.com/Ing-Estefania-Pachon/gestor-tareas)
 
 ---
 
-## 📫 Contacto
+## 🧠 Tecnologías que manejo
 
-- ✉️ **Correo:** ing.estefaniapachon@gmail.com 
-- 💼 [LinkedIn](https://www.linkedin.com/in/estefania-pachon-ing-fullstack/)
-- 🌐 [Portafolio online](httpsgithub.comIng-Estefania-PachonPortafolio_Estefania_P.git)
+![HTML5](https://img.shields.io/badge/HTML5-e34c26?style=flat&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-264de4?style=flat&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-f7df1e?style=flat&logo=javascript&logoColor=black)
+![Java](https://img.shields.io/badge/Java-007396?style=flat&logo=java&logoColor=white)
+![Spring Boot](https://img.shields.io/badge/Spring_Boot-6DB33F?style=flat&logo=spring-boot&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=flat&logo=mysql&logoColor=white)
+
+---
+
+## 📫 ¿Dónde encontrarme?
+
+- 💼 [LinkedIn](https://www.linkedin.com/in/estefaniadev)
+- 💻 [Portafolio web](https://ing-estefania-pachon.github.io)
+- 📬 estefania.dev@email.com
 
 ---
 
-## 💡 Sobre mí
-
-Me encanta aprender cosas nuevas, trabajar en equipo y enfrentar desafíos. Estoy en constante formación como desarrolladora fullstack con enfoque en soluciones funcionales y bien presentadas.
-
----
+> *“El éxito es la suma de pequeños esfuerzos repetidos cada día.”* 🌟
