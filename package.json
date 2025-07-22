@@ -1,0 +1,12 @@
+{
+  "name": "portafolio_estefania_p",
+  "version": "1.0.0",
+  "description": "¡Hola! Soy Estefanía, desarrolladora Full Stack en formación con pasión por el diseño web, la lógica de programación y las soluciones creativas. Este es mi portafolio personal donde podrás conocer mis proyectos, habilidades y cómo contactarme.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
