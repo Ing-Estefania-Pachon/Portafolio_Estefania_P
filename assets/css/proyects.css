@@ -1,0 +1,211 @@
+:root {
+    --colorFondo: #faf9ff;
+    --colorPrimario: #751a99;
+    --colorSecundario: #51c99b;
+    --colorTarjeta: #ffffff;
+    --sombra: 0 8px 28px rgba(0, 0, 0, .12);
+    --gap: 16px;
+    --radio: 12px;
+    --tamIconoAccion: 20px;
+}
+
+/* SECCIÓN */
+.seccionProyectos {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 8px;
+}
+
+.tituloSeccion {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--colorPrimario);
+    margin-bottom: 12px;
+    text-align: left;
+}
+
+/* CARRUSEL: contenedor y botones */
+.carruselProyectos {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 12px;
+    align-items: center;
+}
+
+.btnAnterior,
+.btnSiguiente {
+    background: var(--colorTarjeta);
+    border: 1px solid rgba(0, 0, 0, .06);
+    width: 44px;
+    height: 44px;
+    border-radius: 8px;
+    display: inline-grid;
+    place-items: center;
+    cursor: pointer;
+    box-shadow: var(--sombra);
+}
+
+.btnAnterior:disabled,
+.btnSiguiente:disabled {
+    opacity: .45;
+    cursor: default;
+    transform: none;
+}
+
+/* ventana que oculta overflow */
+.ventanaCarrusel {
+    overflow: hidden;
+    width: 100%;
+}
+
+/* fila de tarjetas (flex) */
+.filaProyectos {
+    display: flex;
+    gap: var(--gap);
+    transition: transform .35s ease;
+    will-change: transform;
+}
+
+/* tarjeta (cada proyecto) */
+.tarjetaProyecto {
+    background: var(--colorTarjeta);
+    border-radius: var(--radio);
+    box-shadow: var(--sombra);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    min-height: 320px;
+    flex: 0 0 calc((100% - 2 * var(--gap)) / 3);
+    /* default: 3 por fila */
+}
+
+/* imagen representativa */
+.imagenProyecto {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    display: block;
+}
+
+.contenidoProyecto {
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1 1 auto;
+}
+
+.nombreProyecto {
+    font-weight: 800;
+    font-size: 1rem;
+    color: var(--colorPrimario);
+}
+
+.descripcionProyecto {
+    font-size: 0.92rem;
+    color: #333;
+    flex: 1 1 auto;
+}
+
+.tecnologiasProyecto {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.iconoTecnologia {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 8px;
+    border-radius: 999px;
+    background: rgba(0, 0, 0, 0.04);
+    font-size: 0.85rem;
+    color: #111;
+}
+
+.iconoTecnologia i {
+    font-size: 1rem;
+    margin-right: 6px;
+}
+
+/* botones acción iguales */
+.contenedorBotones {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.botonAccion {
+    display: inline-grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: linear-gradient(180deg, #fff, #f5f5f5);
+    border: 1px solid rgba(0, 0, 0, .06);
+    cursor: pointer;
+    text-decoration: none;
+    color: #111;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, .06);
+}
+
+.botonAccion i {
+    font-size: var(--tamIconoAccion);
+}
+
+/* combinar con area inferior de la tarjeta */
+.pieTarjeta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    padding: 12px;
+    border-top: 1px solid rgba(0, 0, 0, .03);
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.01), transparent);
+}
+
+/* responsive: 2 por fila en tablet */
+@media (max-width: 1023px) {
+    .tarjetaProyecto {
+        flex: 0 0 calc((100% - var(--gap)) / 2);
+    }
+}
+
+/* responsive: 1 por fila en mobile */
+@media (max-width: 425px) {
+    .carruselProyectos {
+        grid-template-columns: auto 1fr auto;
+        gap: 8px;
+        align-items: center;
+    }
+
+    .tarjetaProyecto {
+        flex: 0 0 100%;
+        min-height: 300px;
+    }
+
+    .imagenProyecto {
+        height: 160px;
+    }
+
+    .btnAnterior,
+    .btnSiguiente {
+        width: 40px;
+        height: 40px;
+    }
+
+    .botonAccion {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+/* pequeños refinamientos visuales */
+.nombreProyecto small {
+    font-weight: 600;
+    color: #666;
+    margin-left: 8px;
+    font-size: .78rem;
+}
