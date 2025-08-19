@@ -1,0 +1,50 @@
+/* assets/css/footer.css */
+
+:root {
+    --footerHeight: 56px;
+}
+
+#barraEstado {
+    background-color: rgba(37, 37, 37, 0.95);
+    color: rgba(255, 255, 255, 0.9);
+    flex-shrink: 0;
+    min-height: var(--footerHeight);
+    height: var(--footerHeight);
+    display: flex;
+    align-items: center;
+    width: 100%;
+    box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.08);
+}
+
+#barraEstado .container {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: .25rem;
+    padding-bottom: .25rem;
+}
+
+#barraEstado span {
+    font-size: .92rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+@media (max-width: 576px) {
+    #barraEstado {
+        min-height: 72px;
+        height: auto;
+        padding: .6rem 0;
+    }
+
+    #barraEstado .container {
+        flex-direction: column;
+        gap: 6px;
+        align-items: center;
+    }
+
+    #barraEstado span {
+        font-size: .85rem;
+        text-align: center;
+    }
+}

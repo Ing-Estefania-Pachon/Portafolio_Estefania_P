@@ -1,0 +1,250 @@
+/* Estilos Navbar */
+body {
+    margin: 0;
+    font-family: 'Trebuchet MS', sans-serif;
+    overflow-x: hidden;
+}
+
+:root {
+    --verdeEncarta: #2cc48a;
+    --verdeEncartaOscuro: #338666;
+    --verdeEncartaClaro: #36f5ac;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+header.navbar {
+    width: 100%;
+    background: linear-gradient(90deg, var(--verdeEncartaClaro), var(--verdeEncarta));
+    padding: 0;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    position: relative;
+    z-index: 10;
+    min-height: 64px;
+}
+
+
+.barraDeNavegacion {
+    display: grid;
+    grid-template-columns: min-content 1fr min-content;
+    grid-template-areas: "icons search logo";
+    align-items: center;
+    gap: 12px;
+    padding: 10px 20px;
+    width: 100%;
+    min-height: 44px;
+    background: linear-gradient(90deg, var(--verdeEncartaClaro), var(--verdeEncarta)) !important;
+}
+
+.barraDeNavegacion > * {
+    min-width: 0; 
+}
+
+.contenedorIconos {
+    grid-area: icons;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-self: start;
+    flex-wrap: nowrap;
+}
+
+.iconosDeEnlace {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--verdeEncartaClaro), var(--verdeEncartaOscuro));
+    color: white;
+    transition: transform .12s ease, box-shadow .12s ease;
+    text-decoration: none;
+    flex: 0 0 auto;
+}
+
+.iconosDeEnlace i {
+    font-size: 1.2rem;
+}
+
+.iconosDeEnlace:hover,
+.iconosDeEnlace:focus {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.14);
+}
+
+.barraBusqueda {
+    grid-area: search;
+    justify-self: center;
+    width: 100%;
+    max-width: 560px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.campoBuscar {
+    width: 100%;
+    min-width: 0;
+    padding: 8px 12px;
+    border-radius: 24px;
+    border: 1.5px solid var(--verdeEncartaOscuro);
+    color: #000000;
+    font-size: 0.95rem;
+}
+
+.campoBuscar::placeholder {
+    color: rgba(27, 27, 27, 0.685);
+}
+
+.botonBuscar {
+    background: transparent;
+    border: none;
+    color: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px;
+}
+
+.logoEncarta {
+    grid-area: logo;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    color: #fff;
+    justify-self: end;
+    text-align: right;
+    min-width: 0; 
+    white-space: nowrap;
+}
+
+.logoLink {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.logoTop {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.logoMain {
+    font-size: 0.85rem;
+    opacity: 0.95;
+}
+
+.logoImg {
+    height: 48px;
+    display: block;
+}
+
+.logoBottom {
+    font-size: 1.6rem;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.iconosDeEnlace:focus {
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.12);
+    outline: none;
+}
+
+.campoBuscar:focus {
+    outline: 3px solid rgba(255, 255, 255, 0.08);
+    outline-offset: 2px;
+}
+
+@media (max-width: 992px) {
+    .barraDeNavegacion {
+        padding: 8px 12px;
+        gap: 8px;
+    }
+
+    .logoImg {
+        height: 44px;
+    }
+
+    .logoBottom {
+        font-size: 1.35rem;
+    }
+
+    .campoBuscar {
+        max-width: 520px;
+    }
+}
+
+@media (max-width: 768px) {
+    .logoImg { height: 44px; }   
+    .logoBottom { font-size: 1.2rem; }
+}
+
+@media (max-width: 576px) {
+    .barraDeNavegacion {
+        padding: 6px 10px;
+        gap: 6px;
+        grid-template-columns: auto 1fr;
+        grid-template-rows: auto auto;
+        grid-template-areas:
+            "icons logo"
+            "search search";
+        align-items: center;
+    }
+
+    .contenedorIconos {
+        gap: 6px;
+        justify-self: start;
+    }
+
+    .logoImg {
+        height: 36px;
+    }
+
+    .logoBottom {
+        font-size: 1.0rem;
+    }
+
+    .logoMain {
+        font-size: 0.72rem;
+    }
+
+    .barraBusqueda {
+        justify-self: center;
+        width: calc(100% - 20px);
+        max-width: 420px;
+        margin-top: 6px; 
+    }
+
+    .campoBuscar {
+        max-width: none;
+        padding: 6px 10px;
+    }
+
+    .iconosDeEnlace {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 360px) {
+    .logoEncarta {
+        min-width: 0;
+    }
+
+    .campoBuscar {
+        min-width: 100px;
+        max-width: 160px;
+    }
+
+    .logoImg {
+        height: 32px;
+    }
+}

@@ -1,0 +1,300 @@
+/* estilos habilidades.css */
+
+:root {
+  --verdeEncarta: #51c99b;
+  --verdeEncartaOscuro: #289c70;
+  --accentMorado1: #7b1fa2;
+  --accentMorado2: #a34dc5;
+  --fondoClaro: #fff7ef;
+  --textoOscuro: #222222;
+  --sombraPrincipal: 0 10px 26px rgba(0, 0, 0, 0.18);
+  --cardRadius: 12px;
+}
+
+
+* {
+  -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
+}
+
+button,
+a,
+input,
+textarea {
+  outline: none;
+}
+
+:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 6px rgba(163, 77, 197, 0.10);
+  border-radius: 8px;
+}
+
+/* Preferencias de animación */
+@media (prefers-reduced-motion: reduce) {
+
+  .entradaPop,
+  .tarjetaHabilidad,
+  .chipTecnologia,
+  .listaHabilidadesBlandas li {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+.ventanaEncarta.retroModal {
+  background: linear-gradient(180deg, #fff7ef, #f6ecff);
+  border: 4px solid var(--verdeEncarta);
+  border-radius: 10px;
+  box-shadow: var(--sombraPrincipal);
+  overflow: visible;
+}
+
+.barraVentana-habilities {
+  background: linear-gradient(90deg, #54d8a4, var(--verdeEncarta));
+  color: #052b1a;
+  padding: 12px 16px;
+  font-weight: 700;
+  border-bottom-left-radius: calc(var(--cardRadius) - 2px);
+  border-bottom-right-radius: calc(var(--cardRadius) - 2px);
+}
+
+.habilitiesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  align-items: start;
+  padding: 16px;
+}
+
+@media (max-width: 992px) {
+  .habilitiesGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .habilitiesGrid {
+    grid-template-columns: 1fr;
+    padding: 12px;
+    gap: 12px;
+  }
+}
+
+.tarjetaHabilidad {
+  background: linear-gradient(180deg, #fff, #f6f0ff);
+  border-radius: var(--cardRadius);
+  padding: 14px;
+  border: 2px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  transition: transform .2s cubic-bezier(.2, .9, .3, 1), box-shadow .18s ease;
+  transform-origin: center;
+  position: relative;
+  overflow: visible;
+  /* entrada suave */
+  animation: entradaPop .45s ease both;
+}
+
+@keyframes entradaPop {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(.995);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.tarjetaHabilidad:hover {
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: 0 18px 46px rgba(0, 0, 0, 0.12);
+  z-index: 4;
+}
+
+.tarjetaHabilidad::after {
+  content: "";
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  top: 0;
+  height: 6px;
+  border-top-left-radius: calc(var(--cardRadius) - 6px);
+  border-top-right-radius: calc(var(--cardRadius) - 6px);
+  background: linear-gradient(90deg, var(--accentMorado1), var(--accentMorado2));
+  opacity: .06;
+  pointer-events: none;
+}
+
+.iconoHabilidad {
+  width: 56px;
+  height: 56px;
+  min-width: 56px;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, rgba(163, 77, 197, 0.12), rgba(54, 245, 172, 0.06));
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  color: var(--accentMorado1);
+  font-size: 1.45rem;
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+
+.tarjetaHabilidad:hover .iconoHabilidad {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 8px 20px rgba(123, 31, 162, 0.08);
+}
+
+.iconoHabilidad,
+.iconoHabilidad i {
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+}
+
+.iconoHabilidad:focus-visible {
+  box-shadow: 0 0 0 6px rgba(123, 31, 162, 0.08);
+  border-radius: 10px;
+}
+
+.chipTecnologia {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .35rem .6rem;
+  border-radius: 999px;
+  font-weight: 800;
+  font-size: .85rem;
+  background: linear-gradient(90deg, #fff, #f7f4ff);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  color: var(--textoOscuro);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.04);
+  transition: transform .12s ease, box-shadow .12s ease, background .18s ease;
+}
+
+.chipTecnologia i {
+  display: inline-grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 6px;
+  font-size: .95rem;
+  background: linear-gradient(180deg, #ffd966, #ffc107);
+  color: #2b2b2b;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  line-height: 1;
+}
+
+.chipTecnologia,
+.chipTecnologia i {
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+}
+
+.chipTecnologia:focus-visible {
+  box-shadow: 0 0 0 6px rgba(123, 31, 162, 0.06);
+}
+
+.chipTecnologia:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+.chipTecnologia::before {
+  content: attr(data-icon);
+  display: none;
+}
+
+.listaHabilidadesBlandas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.listaHabilidadesBlandas li {
+  background: linear-gradient(90deg, #fff, #fffaf6);
+  padding: .45rem .7rem;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  font-weight: 700;
+  color: var(--textoOscuro);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.04);
+  transform-origin: center;
+  animation: entradaPop .36s ease both;
+}
+
+.listaHabilidadesBlandas li:nth-child(3n+1) {
+  background: linear-gradient(90deg, #fff, #f3f0ff);
+}
+
+.listaHabilidadesBlandas li:nth-child(3n+2) {
+  background: linear-gradient(90deg, #fff, #f9fff6);
+}
+
+.listaHabilidadesBlandas li:nth-child(3n+3) {
+  background: linear-gradient(90deg, #fff, #fff7f2);
+}
+
+.habilitiesIntro {
+  color: var(--textoOscuro);
+  margin-bottom: 8px;
+}
+
+.habilitiesSubtitulo {
+  color: rgba(0, 0, 0, 0.6);
+  font-size: .95rem;
+  margin-bottom: 12px;
+}
+
+@media (max-width: 576px) {
+  .tarjetaHabilidad {
+    padding: 12px;
+    gap: 10px;
+  }
+
+  .iconoHabilidad {
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    font-size: 1.2rem;
+  }
+
+  .chipTecnologia {
+    font-size: .78rem;
+    padding: .3rem .5rem;
+  }
+
+  .habilitiesGrid {
+    gap: 12px;
+    padding: 12px;
+  }
+
+  .listaHabilidadesBlandas {
+    gap: 8px;
+  }
+}
+
+@keyframes floatSutil {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-6px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.tarjetaHabilidad.float {
+  animation: floatSutil 6s ease-in-out infinite;
+  opacity: .98;
+}

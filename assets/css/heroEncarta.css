@@ -1,0 +1,268 @@
+/* estilos heroEncarta.css */
+
+:root {
+  --verdeEncarta: #51c99b;
+  --verdeEncartaOscuro: #289c70;
+  --lavandaEncarta: #a34dc5;
+  --moradoPrincipal: #751a99;
+  --moradoClaro: #d5a8e7;
+  --colorTexto: #101010;
+  --sombra: 0 6px 18px rgba(0, 0, 0, .18);
+
+  --headerHeight: 64px;
+  --footerHeight: 56px;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: 'Trebuchet MS', sans-serif;
+  color: var(--colorTexto);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+#siteContent {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.seccionPrincipal {
+  background: radial-gradient(1200px 600px at 40% 20%, var(--moradoClaro), var(--moradoPrincipal));
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1 1 auto;
+  min-height: calc(100vh - var(--headerHeight) - var(--footerHeight));
+  position: relative;
+  overflow: hidden;
+}
+
+.contenedorCategorias {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 32px;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.columnaIzquierda,
+.columnaDerecha {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-items: center;
+}
+
+.tarjetaCategoria {
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+  width: min(260px, 90%);
+  height: 80px;
+  padding-inline: 10px;
+  text-decoration: none;
+  color: var(--colorTexto);
+  background: linear-gradient(#eda3ff, var(--lavandaEncarta));
+  border: 4px solid var(--verdeEncartaOscuro);
+  border-radius: 12px;
+  box-shadow: var(--sombra);
+  transition: transform .18s ease, box-shadow .2s ease, filter .2s ease;
+  overflow: visible;
+}
+
+.columnaIzquierda .tarjetaCategoria {
+  transform: skewY(4deg) rotate(-1deg);
+}
+
+.columnaDerecha .tarjetaCategoria {
+  transform: skewX(-4deg) rotate(-2deg);
+}
+
+.columnaIzquierda .tarjetaCategoria:hover {
+  transform: skewY(4deg) rotate(-1deg) translateX(12px);
+  filter: brightness(1.03);
+}
+
+.columnaDerecha .tarjetaCategoria:hover {
+  transform: skewX(-4deg) rotate(-2deg) translateX(-12px);
+  filter: brightness(1.03);
+}
+
+.iconoCategoria {
+  width: clamp(48px, 8vw, 60px);
+  height: clamp(48px, 8vw, 60px);
+  display: grid;
+  place-items: center;
+  font-size: clamp(20px, 3.5vw, 28px);
+}
+
+.textoCategoria {
+  font-weight: 800;
+  font-size: clamp(16px, 3.5vw, 20px);
+  line-height: 1.1;
+}
+
+/* animaciones */
+@keyframes entrarTarjeta {
+  from {
+    transform: translateX(-30px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.tarjetaCategoria.estaEntrando {
+  animation: entrarTarjeta .45s ease forwards;
+}
+
+.contenedorCentral {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-align: center;
+  flex: 0 1 clamp(220px, 40%, 520px);
+}
+
+.logoHeroEncarta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.logoHeroTop {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: center;
+}
+
+.logoHeroMain {
+  font-weight: 800;
+  color: var(--colorTexto);
+  font-size: clamp(12px, 1.6vw, 18px);
+  white-space: nowrap;
+}
+
+.logoHeroImg {
+  height: clamp(80px, 20vw, 240px);
+  width: auto;
+  display: block;
+}
+
+.logoHeroBottom {
+  font-size: clamp(50px, 1.6vw, 100px);
+  color: white;
+  font-weight: 700;
+}
+
+.logoHeroBottom em {
+  font-style: italic;
+}
+
+/* responsive */
+@media (max-width: 1024px) {
+  .contenedorCategorias {
+    gap: 22px;
+    padding-inline: 10px;
+  }
+
+  .tarjetaCategoria {
+    height: 74px;
+  }
+
+  .logoHeroImg {
+    height: clamp(110px, 18vw, 300px);
+  }
+
+  .contenedorCentral {
+    flex: 0 1 clamp(200px, 45%, 480px);
+  }
+}
+
+@media (max-width: 425px) {
+  .contenedorCategorias {
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+  }
+
+  .columnaIzquierda,
+  .columnaDerecha {
+    flex-direction: row;
+    gap: 10px;
+    justify-content: center;
+  }
+
+  .tarjetaCategoria {
+    width: min(220px, 92%);
+    height: 72px;
+    transform: none;
+  }
+
+  .logoHeroTop {
+    gap: 10px;
+  }
+
+  .logoHeroImg {
+    height: clamp(90px, 24vw, 220px);
+  }
+
+  .logoHeroBottom {
+    font-size: clamp(11px, 1.8vw, 14px);
+  }
+
+  .contenedorCentral {
+    flex-basis: auto;
+    width: 100%;
+    max-width: 420px;
+  }
+}
+
+@media (max-width: 320px) {
+  .contenedorCategorias {
+    padding-inline: 8px;
+    gap: 12px;
+  }
+
+  .tarjetaCategoria {
+    width: min(200px, 95%);
+    height: 66px;
+    gap: .6rem;
+  }
+
+  .iconoCategoria {
+    width: 44px;
+    height: 44px;
+    font-size: 20px;
+  }
+
+  .logoHeroMain {
+    display: none;
+  }
+
+  .logoHeroImg {
+    height: clamp(72px, 28vw, 180px);
+  }
+
+  .logoHeroBottom {
+    font-size: 12px;
+  }
+}

@@ -1,211 +1,239 @@
+/* estilos proyects.css*/
 :root {
-    --colorFondo: #faf9ff;
-    --colorPrimario: #751a99;
-    --colorSecundario: #51c99b;
-    --colorTarjeta: #ffffff;
-    --sombra: 0 8px 28px rgba(0, 0, 0, .12);
-    --gap: 16px;
-    --radio: 12px;
-    --tamIconoAccion: 20px;
+    --cardRadius: 12px;
+    --cardBorder: 3px;
+    --accentMorado1: #7b1fa2;
+    --accentMorado2: #a34dc5;
+    --textoOscuro: #222;
 }
 
-/* SECCIÓN */
-.seccionProyectos {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 8px;
+.ventanaEncarta.retroModal.modalConHoverTarjeta {
+    border-color: transparent !important;
+    box-shadow: none !important;
 }
 
-.tituloSeccion {
-    font-size: 1.25rem;
-    font-weight: 800;
-    color: var(--colorPrimario);
-    margin-bottom: 12px;
-    text-align: left;
+.ventanaEncarta.retroModal {
+    overflow: visible;
 }
 
-/* CARRUSEL: contenedor y botones */
-.carruselProyectos {
-    display: grid;
-    grid-template-columns: auto 1fr auto;
-    gap: 12px;
-    align-items: center;
-}
-
-.btnAnterior,
-.btnSiguiente {
-    background: var(--colorTarjeta);
-    border: 1px solid rgba(0, 0, 0, .06);
-    width: 44px;
-    height: 44px;
-    border-radius: 8px;
-    display: inline-grid;
-    place-items: center;
-    cursor: pointer;
-    box-shadow: var(--sombra);
-}
-
-.btnAnterior:disabled,
-.btnSiguiente:disabled {
-    opacity: .45;
-    cursor: default;
-    transform: none;
-}
-
-/* ventana que oculta overflow */
-.ventanaCarrusel {
-    overflow: hidden;
-    width: 100%;
-}
-
-/* fila de tarjetas (flex) */
-.filaProyectos {
-    display: flex;
-    gap: var(--gap);
-    transition: transform .35s ease;
-    will-change: transform;
-}
-
-/* tarjeta (cada proyecto) */
 .tarjetaProyecto {
-    background: var(--colorTarjeta);
-    border-radius: var(--radio);
-    box-shadow: var(--sombra);
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    min-height: 320px;
-    flex: 0 0 calc((100% - 2 * var(--gap)) / 3);
-    /* default: 3 por fila */
-}
-
-/* imagen representativa */
-.imagenProyecto {
-    width: 100%;
-    height: 160px;
-    object-fit: cover;
+    position: relative;
+    border-radius: var(--cardRadius);
+    overflow: visible;
+    background: linear-gradient(180deg, #fff, #f6f0ff);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, .08);
     display: block;
 }
 
-.contenidoProyecto {
-    padding: 12px;
+.tarjetaProyecto::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: var(--cardRadius);
+    padding: var(--cardBorder);
+    background: linear-gradient(90deg, var(--accentMorado1), var(--accentMorado2), #36f5ac, var(--accentMorado1));
+    background-size: 200% 200%;
+    z-index: 1;
+    pointer-events: none;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity .20s ease;
+}
+
+.tarjetaProyecto:hover::before {
+    opacity: 1;
+    animation: borderMove 1.9s linear infinite;
+}
+
+@keyframes borderMove {
+    from {
+        background-position: 0% 50%
+    }
+
+    to {
+        background-position: 100% 50%
+    }
+}
+
+.tarjetaInner {
+    position: relative;
+    z-index: 2;
+    border-radius: calc(var(--cardRadius) - var(--cardBorder));
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.imagenProyecto {
+    display: block;
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-top-left-radius: calc(var(--cardRadius) - var(--cardBorder));
+    border-top-right-radius: calc(var(--cardRadius) - var(--cardBorder));
+}
+
+.tarjetaBody {
+    padding: 16px;
+    color: var(--textoOscuro);
     display: flex;
     flex-direction: column;
     gap: 10px;
-    flex: 1 1 auto;
 }
 
-.nombreProyecto {
-    font-weight: 800;
-    font-size: 1rem;
-    color: var(--colorPrimario);
-}
-
-.descripcionProyecto {
-    font-size: 0.92rem;
-    color: #333;
-    flex: 1 1 auto;
-}
-
-.tecnologiasProyecto {
-    display: flex;
-    gap: 8px;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-.iconoTecnologia {
+.chipTecnologia {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
-    padding: 6px 8px;
+    gap: .4rem;
+    padding: .35rem .6rem;
     border-radius: 999px;
-    background: rgba(0, 0, 0, 0.04);
-    font-size: 0.85rem;
-    color: #111;
+    font-weight: 800;
+    font-size: .85rem;
+    background: linear-gradient(90deg, #fff, #f5f0ff);
+    border: 1px solid rgba(0, 0, 0, .06);
+    color: #222;
 }
 
-.iconoTecnologia i {
-    font-size: 1rem;
-    margin-right: 6px;
+.chipTecnologia i {
+    font-size: 0.95rem;
+    line-height: 1;
 }
 
-/* botones acción iguales */
-.contenedorBotones {
-    display: flex;
-    gap: 8px;
+.btn:focus,
+.btn:active,
+.chipTecnologia:focus,
+.chipTecnologia i:focus,
+.bi:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.btn:focus-visible,
+.chipTecnologia:focus-visible {
+    outline: none !important;
+    box-shadow: 0 0 0 4px rgba(123, 31, 162, 0.12) !important;
+}
+
+.btnAccion,
+.btnAccionSecundaria {
+    border-radius: 8px;
+    padding: .45rem .8rem;
+    font-weight: 700;
+    display: inline-flex;
     align-items: center;
+    gap: .5rem;
+    border: none;
 }
 
-.botonAccion {
-    display: inline-grid;
-    place-items: center;
+.btnAccion {
+    background: linear-gradient(90deg, var(--accentMorado2), var(--accentMorado1));
+    color: white;
+    box-shadow: 0 6px 14px rgba(163, 77, 197, .18);
+}
+
+.btnAccionSecundaria {
+    background: transparent;
+    color: var(--accentMorado1);
+    border: 2px solid rgba(163, 77, 197, .14);
+}
+
+.btnAccion i,
+.btnAccionSecundaria i {
+    font-size: 1rem;
+}
+
+#carouselProyectos {
+    position: relative;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    margin-top: 68vh;
     width: 44px;
     height: 44px;
-    border-radius: 10px;
-    background: linear-gradient(180deg, #fff, #f5f5f5);
-    border: 1px solid rgba(0, 0, 0, .06);
-    cursor: pointer;
-    text-decoration: none;
-    color: #111;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, .06);
-}
-
-.botonAccion i {
-    font-size: var(--tamIconoAccion);
-}
-
-/* combinar con area inferior de la tarjeta */
-.pieTarjeta {
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.06);
+    border: 2px solid rgba(0, 0, 0, 0.06);
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    gap: 8px;
-    padding: 12px;
-    border-top: 1px solid rgba(0, 0, 0, .03);
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0.01), transparent);
+    justify-content: center;
+    position: absolute;
+    bottom: -56px;
+    z-index: 60;
+    transition: background .12s ease, transform .12s ease;
+    pointer-events: auto;
 }
 
-/* responsive: 2 por fila en tablet */
-@media (max-width: 1023px) {
-    .tarjetaProyecto {
-        flex: 0 0 calc((100% - var(--gap)) / 2);
-    }
+.carousel-control-prev {
+    left: calc(50% - 44px - 8px);
 }
 
-/* responsive: 1 por fila en mobile */
-@media (max-width: 425px) {
-    .carruselProyectos {
-        grid-template-columns: auto 1fr auto;
-        gap: 8px;
-        align-items: center;
-    }
+.carousel-control-next {
+    left: calc(50% + 8px);
+}
 
-    .tarjetaProyecto {
-        flex: 0 0 100%;
-        min-height: 300px;
-    }
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    filter: none;
+    width: 22px;
+    height: 22px;
+}
 
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+    transform: scale(1.03);
+    background: rgba(0, 0, 0, 0.09);
+}
+
+@media (max-width:768px) {
     .imagenProyecto {
-        height: 160px;
+        height: 140px
     }
 
-    .btnAnterior,
-    .btnSiguiente {
-        width: 40px;
-        height: 40px;
-    }
-
-    .botonAccion {
-        width: 40px;
-        height: 40px;
+    .carousel-control-prev,
+    .carousel-control-next {
+        margin-top: 85vh;
     }
 }
 
-/* pequeños refinamientos visuales */
-.nombreProyecto small {
-    font-weight: 600;
-    color: #666;
-    margin-left: 8px;
-    font-size: .78rem;
+@media (max-width:576px) {
+    .imagenProyecto {
+        height: 120px
+    }
+
+    .chipTecnologia {
+        font-size: .75rem;
+        padding: .3rem .5rem
+    }
+
+    .tarjetaBody {
+        padding: 12px
+    }
+
+    .btnAccion,
+    .btnAccionSecundaria {
+        padding: .4rem .65rem;
+        font-size: .9rem
+    }
+
+    .carousel-control-prev,
+    .carousel-control-next {
+        bottom: -62px;
+    }
+}
+
+@media (max-width:425px) {
+    .imagenProyecto {
+        height: 120px
+    }
+
+    .carousel-control-prev,
+    .carousel-control-next {
+        margin-top: 70vh;
+    }
 }

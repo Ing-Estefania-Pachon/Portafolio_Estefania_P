@@ -1,0 +1,105 @@
+<!-- components/about.html -->
+<div class="modal fade" id="modalAcerca" tabindex="-1" aria-labelledby="tituloModalAcerca" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content ventanaEncarta retroModal">
+      <div class="modal-header barraVentanaAcerca">
+        <h5 id="tituloModalAcerca" class="modal-title">
+          <i class="bi bi-person-circle me-2" aria-hidden="true"></i> Acerca de mí
+        </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+
+      <div class="modal-body">
+
+        <div class="row g-4 align-items-start">
+
+          <div class="col-12 col-md-4 text-center">
+
+            <img src="assets/img/fotoPerfil.jpg" alt="Foto de Estefania" class="fotoPerfilCuadrada" width="180"
+              height="180" />
+          </div>
+
+
+          <div class="col-12 col-md-8">
+            <p class="mb-2">Hola — soy <strong>Estefania</strong>, ingeniera ambiental y desarrolladora full-stack en
+              formación. Me apasiona construir interfaces accesibles, limpias y proyectos que conecten lo técnico con el
+              diseño. Disfruto el trabajo de campo tanto como el trabajo frente a la terminal.</p>
+
+            <ul class="listaDatos mb-3">
+              <li><i class="bi bi-geo-alt-fill me-1" aria-hidden="true"></i> Colombia</li>
+              <li><i class="bi bi-heart-fill me-1" aria-hidden="true"></i> Intereses: UI, accesibilidad, data y
+                automatización</li>
+              <li><i class="bi bi-translate me-1" aria-hidden="true"></i> Idiomas: Español (nativo), Inglés (A2 → en
+                mejora)</li>
+            </ul>
+
+
+            <div class="mb-3">
+              <strong>Redes</strong>
+              <div class="d-flex gap-2 mt-2 redesContainer">
+                <a href="https://www.linkedin.com/in/estefania-pachon-ing-fullstack/" class="btn btn-sm redLink"
+                  target="_blank" rel="noopener" aria-label="LinkedIn de Estefania">
+                  <i class="bi bi-linkedin" aria-hidden="true"></i> <span class="d-none d-sm-inline">LinkedIn</span>
+                </a>
+
+                <a href="https://github.com/Ing-Estefania-Pachon" class="btn btn-sm redLink" target="_blank"
+                  rel="noopener" aria-label="GitHub de Estefania">
+                  <i class="bi bi-github" aria-hidden="true"></i> <span class="d-none d-sm-inline">GitHub</span>
+                </a>
+
+                <a href="mailto:ing.estefaniapachon@gmail.com" class="btn btn-sm redLink"
+                  aria-label="Enviar correo a Estefania">
+                  <i class="bi bi-envelope" aria-hidden="true"></i> <span class="d-none d-sm-inline">Correo</span>
+                </a>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+
+        <div class="horarioBanner mt-3" role="status" aria-label="Horario de atención">
+          <div class="d-flex align-items-center justify-content-between flex-column flex-md-row">
+            <div class="fw-bold"><i class="bi bi-clock me-2" aria-hidden="true"></i> Horario de atención</div>
+            <div class="textoHorario small">Lun - Vie · 09:00 - 17:00 (GMT-5)</div>
+          </div>
+        </div>
+
+        <hr class="my-3">
+
+
+        <h4 class="tituloContactame mt-2 mb-3">Contáctame</h4>
+
+        <form id="contactFormAcerca" class="formContacto needs-validation" novalidate>
+          <div class="row g-3">
+            <div class="col-12 col-md-6">
+              <label for="contactName" class="form-label">Nombre</label>
+              <input id="contactName" name="name" type="text" class="form-control" placeholder="Tu nombre" required>
+              <div class="invalid-feedback">Por favor ingresa tu nombre.</div>
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label for="contactEmail" class="form-label">Correo</label>
+              <input id="contactEmail" name="email" type="email" class="form-control" placeholder="tu@ejemplo.com"
+                required>
+              <div class="invalid-feedback">Ingresa un correo válido.</div>
+            </div>
+
+            <div class="col-12">
+              <label for="contactMessage" class="form-label">Mensaje</label>
+              <textarea id="contactMessage" name="message" rows="4" class="form-control"
+                placeholder="Escribe tu mensaje..." required></textarea>
+              <div class="invalid-feedback">El mensaje no puede estar vacío.</div>
+            </div>
+
+            <div class="col-12 text-end">
+
+              <button type="submit" class="btn btnAccion" aria-label="Enviar mensaje">Enviar mensaje</button>
+            </div>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
