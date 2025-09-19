@@ -1,4 +1,4 @@
-/* estilos proyects.css*/
+/* estilos proyects.css */
 :root {
     --cardRadius: 12px;
     --cardBorder: 3px;
@@ -7,6 +7,7 @@
     --textoOscuro: #222;
 }
 
+/* Ventana */
 .ventanaEncarta.retroModal.modalConHoverTarjeta {
     border-color: transparent !important;
     box-shadow: none !important;
@@ -16,13 +17,23 @@
     overflow: visible;
 }
 
+.barraVentana-proyects {
+  background: linear-gradient(90deg, #54d8a4, var(--verdeEncarta));
+  color: #052b1a;
+  padding: 12px 16px;
+  font-weight: 700;
+  border-bottom-left-radius: calc(var(--cardRadius) - 2px);
+  border-bottom-right-radius: calc(var(--cardRadius) - 2px);
+}
+
+/* Tarjeta */
 .tarjetaProyecto {
     position: relative;
-    border-radius: var(--cardRadius);
+    border:none;
     overflow: visible;
-    background: linear-gradient(180deg, #fff, #f6f0ff);
     box-shadow: 0 6px 16px rgba(0, 0, 0, .08);
     display: block;
+    border-radius: var(--cardRadius);
 }
 
 .tarjetaProyecto::before {
@@ -33,7 +44,7 @@
     padding: var(--cardBorder);
     background: linear-gradient(90deg, var(--accentMorado1), var(--accentMorado2), #36f5ac, var(--accentMorado1));
     background-size: 200% 200%;
-    z-index: 1;
+    z-index: 2;
     pointer-events: none;
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
@@ -48,23 +59,26 @@
 }
 
 @keyframes borderMove {
-    from {
-        background-position: 0% 50%
-    }
-
-    to {
-        background-position: 100% 50%
-    }
+    from { background-position: 0% 50% }
+    to   { background-position: 100% 50% }
 }
 
 .tarjetaInner {
     position: relative;
-    z-index: 2;
+    z-index: 1;
     border-radius: calc(var(--cardRadius) - var(--cardBorder));
     overflow: hidden;
     display: flex;
     flex-direction: column;
     height: 100%;
+}
+
+/* ---------- IMAGEN + OVERLAY ---------- */
+.imagenWrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    display: block;
 }
 
 .imagenProyecto {
@@ -74,8 +88,91 @@
     object-fit: cover;
     border-top-left-radius: calc(var(--cardRadius) - var(--cardBorder));
     border-top-right-radius: calc(var(--cardRadius) - var(--cardBorder));
+    transition: transform .25s ease;
 }
 
+/* overlay que aparece al hover sobre la imagen (o focus-within para teclado) */
+.imagenOverlay {
+    position: absolute;
+    inset: 0;
+    z-index: 4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: translateY(6px);
+    transition: opacity .18s ease, transform .18s ease;
+    pointer-events: none; /* activamos botones solo cuando está visible */
+    background: linear-gradient(180deg, rgba(0,0,0,0.45), rgba(0,0,0,0.55));
+}
+
+/* mostrar overlay al hover/focus del wrapper */
+.imagenWrapper:hover .imagenOverlay,
+.imagenWrapper:focus-within .imagenOverlay {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+/* contenido interno del overlay: description + botones abajo */
+.overlayContent {
+    width: 100%;
+    height: 100%;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+    text-align: center;
+}
+
+/* texto */
+.overlayTitle {
+    color: #fff;
+    margin: 0;
+    font-size: 1rem;
+}
+
+.overlayDesc {
+    color: rgba(255,255,255,0.95);
+    font-size: 0.92rem;
+    margin: 6px 0 0;
+}
+
+/* botones dentro del overlay (círculos) */
+.overlayButtons .btn {
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    font-size: 1.05rem;
+}
+
+/* ajustar los colores de los botones para que resalten en el overlay */
+.imagenOverlay .btnAccion {
+    background: linear-gradient(90deg, var(--accentMorado2), var(--accentMorado1));
+    color: #fff;
+    box-shadow: 0 6px 14px rgba(163, 77, 197, .18);
+    border: none;
+}
+
+.imagenOverlay .btnAccionSecundaria {
+    background: rgba(255,255,255,0.07);
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.12);
+    box-shadow: none;
+}
+
+/* efecto hover de los botones dentro del overlay */
+.imagenOverlay .btn:hover {
+    transform: translateY(-3px);
+}
+
+/* ---------- TARJETA BODY (chips) ---------- */
 .tarjetaBody {
     padding: 16px;
     color: var(--textoOscuro);
@@ -84,35 +181,58 @@
     gap: 10px;
 }
 
+/* --- ICONOS DEVICON: sin borde, solo ícono grande, con hover --- */
 .chipTecnologia {
-    display: inline-flex;
-    align-items: center;
-    gap: .4rem;
-    padding: .35rem .6rem;
-    border-radius: 999px;
-    font-weight: 800;
-    font-size: .85rem;
-    background: linear-gradient(90deg, #fff, #f5f0ff);
-    border: 1px solid rgba(0, 0, 0, .06);
-    color: #222;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  margin-right: 0.5rem;
+  background: transparent;
+  box-shadow: none;
+  cursor: default;
+  transition: transform .14s ease, filter .14s ease, box-shadow .14s ease;
+  -webkit-tap-highlight-color: transparent;
 }
 
-.chipTecnologia i {
-    font-size: 0.95rem;
-    line-height: 1;
+.chipTecnologia i[class^="devicon-"],
+.chipTecnologia i.devicon-plain {
+  font-size: 1.6rem;
+  line-height: 1;
+  display: inline-block;
+  vertical-align: middle;
 }
 
+/* ocultar label si por alguna razón existe (mantenemos accesibilidad si usas .chipLabel) */
+.chipTecnologia .chipLabel {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Hover: sutil escala en los iconos de tecnología */
+.chipTecnologia:hover {
+  transform: scale(1.08);
+}
+
+/* ---------- BOTONES GLOBALES ---------- */
 .btn:focus,
 .btn:active,
-.chipTecnologia:focus,
-.chipTecnologia i:focus,
 .bi:focus {
     outline: none !important;
     box-shadow: none !important;
 }
 
-.btn:focus-visible,
-.chipTecnologia:focus-visible {
+.btn:focus-visible {
     outline: none !important;
     box-shadow: 0 0 0 4px rgba(123, 31, 162, 0.12) !important;
 }
@@ -145,95 +265,80 @@
     font-size: 1rem;
 }
 
+/* ---------- CONTROLES CENTRADOS (debajo del proyecto central) ---------- */
+/* Contenedor centrado respecto a #carouselProyectos */
 #carouselProyectos {
-    position: relative;
-    max-width: 1100px;
-    margin: 0 auto;
+  position: relative; /* ya lo tenías, sólo asegurar */
 }
 
-.carousel-control-prev,
-.carousel-control-next {
-    margin-top: 68vh;
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    background: rgba(0, 0, 0, 0.06);
-    border: 2px solid rgba(0, 0, 0, 0.06);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    bottom: -56px;
-    z-index: 60;
-    transition: background .12s ease, transform .12s ease;
-    pointer-events: auto;
+.carousel-controls-centered {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -56px;             /* ajuste vertical por defecto (ajusta si quieres) */
+  z-index: 80;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+  pointer-events: auto;
 }
 
-.carousel-control-prev {
-    left: calc(50% - 44px - 8px);
+/* Neutralizamos las reglas anteriores que posicionaban los controles por separado */
+#carouselProyectos .carousel-control-prev,
+#carouselProyectos .carousel-control-next {
+  left: auto !important;
+  right: auto !important;
+  margin-top: 0 !important;
+  position: relative !important;
+  bottom: auto !important;
+  transform: none !important;
 }
 
-.carousel-control-next {
-    left: calc(50% + 8px);
+/* Estilo visual de cada botón (círculo) dentro del contenedor */
+.carousel-controls-centered .carousel-control-prev,
+.carousel-controls-centered .carousel-control-next {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.20);
+  border: 2px solid rgba(0, 0, 0, 0.20);
+  transition: transform .12s ease, background .12s ease;
+  cursor: pointer;
 }
 
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-    filter: none;
-    width: 22px;
-    height: 22px;
+/* Icono dentro del botón */
+.carousel-controls-centered .carousel-control-prev i,
+.carousel-controls-centered .carousel-control-next i {
+  font-size: 22px;
+  color: #fff;
+  line-height: 1;
 }
 
-.carousel-control-prev:hover,
-.carousel-control-next:hover {
-    transform: scale(1.03);
-    background: rgba(0, 0, 0, 0.09);
+/* Hover / foco */
+.carousel-controls-centered .carousel-control-prev:hover,
+.carousel-controls-centered .carousel-control-next:hover,
+.carousel-controls-centered .carousel-control-prev:focus,
+.carousel-controls-centered .carousel-control-next:focus {
+  transform: scale(1.03);
+  background: rgba(0,0,0,0.09);
+  outline: none;
 }
 
-@media (max-width:768px) {
-    .imagenProyecto {
-        height: 140px
-    }
-
-    .carousel-control-prev,
-    .carousel-control-next {
-        margin-top: 85vh;
-    }
+/* Ajustes responsive: mover controles más cerca o más lejos según pantalla */
+@media (max-width: 768px) {
+  .carousel-controls-centered { bottom: -62px; gap: 10px; }
+  .carousel-controls-centered .carousel-control-prev,
+  .carousel-controls-centered .carousel-control-next { width: 40px; height: 40px; }
+  .carousel-controls-centered i { font-size: 20px; }
 }
 
-@media (max-width:576px) {
-    .imagenProyecto {
-        height: 120px
-    }
-
-    .chipTecnologia {
-        font-size: .75rem;
-        padding: .3rem .5rem
-    }
-
-    .tarjetaBody {
-        padding: 12px
-    }
-
-    .btnAccion,
-    .btnAccionSecundaria {
-        padding: .4rem .65rem;
-        font-size: .9rem
-    }
-
-    .carousel-control-prev,
-    .carousel-control-next {
-        bottom: -62px;
-    }
-}
-
-@media (max-width:425px) {
-    .imagenProyecto {
-        height: 120px
-    }
-
-    .carousel-control-prev,
-    .carousel-control-next {
-        margin-top: 70vh;
-    }
+@media (max-width: 576px) {
+  .carousel-controls-centered { bottom: -70px; gap: 8px; }
+  .carousel-controls-centered .carousel-control-prev,
+  .carousel-controls-centered .carousel-control-next { width: 36px; height: 36px; }
+  .carousel-controls-centered i { font-size: 18px; color: #fff; }
 }

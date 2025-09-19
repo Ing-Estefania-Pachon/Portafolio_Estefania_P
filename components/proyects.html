@@ -1,45 +1,64 @@
 <!-- components/proyects.html -->
+
 <div class="modal fade" id="modalProyectos" tabindex="-1" aria-labelledby="tituloModalProyectos" aria-hidden="true">
   <div class="modal-dialog modal-xl modal-dialog-centered">
     <div class="modal-content ventanaEncarta retroModal">
-      <div class="modal-header barraVentana">
+      <div class="modal-header barraVentana-proyects">
         <h5 id="tituloModalProyectos" class="modal-title"><i class="bi bi-collection me-2"></i> Mis proyectos</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
       </div>
 
       <div class="modal-body d-flex justify-content-center">
-        <div id="carouselProyectos" class="carousel slide w-100" data-bs-ride="carousel" data-bs-interval="8000" data-bs-wrap="false">
+        <div id="carouselProyectos" class="carousel slide w-100" data-bs-ride="carousel" data-bs-interval="8000"
+          data-bs-wrap="false">
           <div class="carousel-inner">
-     
+
             <div class="carousel-item active">
               <div class="row g-4 justify-content-center">
+
                 <!-- Tarjeta: MoodBox -->
                 <div class="col-12 col-md-6 col-lg-4 d-flex">
                   <article class="card tarjetaProyecto w-100 h-100">
                     <div class="tarjetaInner">
-                      <img src="assets/img/proyectos/moodbox.png" alt="MoodBox" class="imagenProyecto" />
-                      <div class="card-body tarjetaBody d-flex flex-column align-items-center text-center">
-                        <h6 class="fw-semibold mb-2">MoodBox</h6>
-                        <p class="mb-3">E-commerce con el mejor regalo para obsequiar.</p>
 
-                        <div class="mb-3 d-flex flex-wrap gap-2 justify-content-center">
-                          <span class="chipTecnologia"><i class="bi bi-filetype-js"></i> JS</span>
-                          <span class="chipTecnologia"><i class="bi bi-filetype-html"></i> HTML</span>
-                          <span class="chipTecnologia"><i class="bi bi-filetype-css"></i> CSS</span>
-                          <span class="chipTecnologia"><i class="bi bi-bootstrap"></i> Bootstrap</span>
-                          <span class="chipTecnologia"><i class="bi bi-git"></i> Git</span>
+                      <!-- Imagen + Overlay -->
+                      <div class="imagenWrapper">
+                        <img src="assets/img/proyectos/moodbox.png" alt="MoodBox" class="imagenProyecto" />
+                        <div class="imagenOverlay" aria-hidden="true">
+                          <div class="overlayContent d-flex flex-column justify-content-between align-items-center">
+                            <div class="overlayText mt-2">
+                              <h6 class="overlayTitle fw-semibold mb-1">MoodBox</h6>
+                              <p class="overlayDesc mb-0">E-commerce con el mejor regalo para obsequiar.</p>
+                            </div>
+
+                            <div class="overlayButtons d-flex gap-2 mb-3">
+                              <a href="#" class="btn btnAccion" aria-label="Abrir demo MoodBox" target="_blank"
+                                rel="noopener">
+                                <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i>
+                              </a>
+
+                              <a href="#" class="btn btnAccionSecundaria" aria-label="Ver código MoodBox"
+                                target="_blank" rel="noopener">
+                                <i class="bi bi-github" aria-hidden="true"></i>
+                              </a>
+                            </div>
+                          </div>
                         </div>
+                      </div>
 
-                        <div class="d-flex gap-2 mt-auto">
-                          <!-- botón Ver demo -->
-                          <a href="#" class="btn btnAccion" aria-label="Abrir demo MoodBox" target="_blank" rel="noopener">
-                            <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i>
-                          </a>
-
-                          <!-- botón Código: deja texto e icono -->
-                          <a href="#" class="btn btnAccionSecundaria" aria-label="Ver código MoodBox" target="_blank" rel="noopener">
-                            <i class="bi bi-github me-1"></i> Código
-                          </a>
+                      <!-- Body: mantenemos chips (solo iconos) -->
+                      <div class="card-body tarjetaBody d-flex flex-column align-items-center text-center">
+                        <div class="mb-3 d-flex flex-wrap gap-2 justify-content-center">
+                          <span class="chipTecnologia"><i class="devicon-javascript-plain colored"></i></span>
+                          <span class="chipTecnologia"><i class="devicon-html5-plain colored"></i></span>
+                          <span class="chipTecnologia"><i class="devicon-css3-plain colored"></i></span>
+                          <span class="chipTecnologia"><i class="devicon-java-plain colored"></i></span>
+                          <span class="chipTecnologia"><i class="devicon-python-plain colored"></i></span>
+                          <span class="chipTecnologia"><i class="devicon-spring-plain colored"></i></span>
+                          <span class="chipTecnologia"><i class="devicon-bootstrap-plain colored"></i></span>
+                          <span class="chipTecnologia"><i class="devicon-mysql-plain colored"></i></span>
+                          <span class="chipTecnologia"><i class="devicon-php-plain colored"></i></span>
+                          <span class="chipTecnologia"><i class="devicon-git-plain colored"></i></span>
                         </div>
                       </div>
                     </div>
@@ -50,22 +69,37 @@
                 <div class="col-12 col-md-6 col-lg-4 d-flex">
                   <article class="card tarjetaProyecto w-100 h-100">
                     <div class="tarjetaInner">
-                      <img src="assets/img/proyectos/sportify.jpg" alt="Sportify" class="imagenProyecto" />
-                      <div class="card-body tarjetaBody d-flex flex-column align-items-center text-center">
-                        <h6 class="fw-semibold mb-2">Sportify</h6>
-                        <p class="mb-3">Tienda deportiva con filtros por disciplina y carrito funcional.</p>
+                      <div class="imagenWrapper">
+                        <img src="assets/img/proyectos/sportify.jpg" alt="Sportify" class="imagenProyecto" />
+                        <div class="imagenOverlay" aria-hidden="true">
+                          <div class="overlayContent d-flex flex-column justify-content-between align-items-center">
+                            <div class="overlayText mt-2">
+                              <h6 class="overlayTitle fw-semibold mb-1">Sportify</h6>
+                              <p class="overlayDesc mb-0">Tienda deportiva con filtros por disciplina y carrito
+                                funcional.</p>
+                            </div>
 
-                        <div class="mb-3 d-flex flex-wrap gap-2 justify-content-center">
-                          <span class="chipTecnologia"><i class="bi bi-filetype-js"></i> JS</span>
-                          <span class="chipTecnologia"><i class="bi bi-filetype-html"></i> HTML</span>
-                          <span class="chipTecnologia"><i class="bi bi-filetype-css"></i> CSS</span>
-                          <span class="chipTecnologia"><i class="bi bi-bootstrap"></i> Bootstrap</span>
-                          <span class="chipTecnologia"><i class="bi bi-git"></i> Git</span>
+                            <div class="overlayButtons d-flex gap-2 mb-3">
+                              <a href="#" class="btn btnAccion" aria-label="Abrir demo Sportify" target="_blank"
+                                rel="noopener">
+                                <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i>
+                              </a>
+                              <a href="#" class="btn btnAccionSecundaria" aria-label="Ver código Sportify"
+                                target="_blank" rel="noopener">
+                                <i class="bi bi-github" aria-hidden="true"></i>
+                              </a>
+                            </div>
+                          </div>
                         </div>
+                      </div>
 
-                        <div class="d-flex gap-2 mt-auto">
-                          <a href="#" class="btn btnAccion" aria-label="Abrir demo Sportify" target="_blank" rel="noopener"><i class="bi bi-box-arrow-up-right" aria-hidden="true"></i></a>
-                          <a href="#" class="btn btnAccionSecundaria" aria-label="Ver código Sportify" target="_blank" rel="noopener"><i class="bi bi-github me-1"></i> Código</a>
+                      <div class="card-body tarjetaBody d-flex flex-column align-items-center text-center">
+                        <div class="mb-3 d-flex flex-wrap gap-2 justify-content-center">
+                          <span class="chipTecnologia"><i class="devicon-javascript-plain colored"></i></span>
+                          <span class="chipTecnologia"><i class="devicon-html5-plain colored"></i></span>
+                          <span class="chipTecnologia"><i class="devicon-css3-plain colored"></i></span>
+                          <span class="chipTecnologia"><i class="devicon-bootstrap-plain colored"></i></span>
+                          <span class="chipTecnologia"><i class="devicon-git-plain colored"></i></span>
                         </div>
                       </div>
                     </div>
@@ -76,22 +110,37 @@
                 <div class="col-12 col-md-6 col-lg-4 d-flex">
                   <article class="card tarjetaProyecto w-100 h-100">
                     <div class="tarjetaInner">
-                      <img src="assets/img/proyectos/blogcine.jpg" alt="Blog de cine" class="imagenProyecto" />
-                      <div class="card-body tarjetaBody d-flex flex-column align-items-center text-center">
-                        <h6 class="fw-semibold mb-2">Blog de cine</h6>
-                        <p class="mb-3">Reseñas y ratings con búsqueda por géneros y sistema de entradas.</p>
+                      <div class="imagenWrapper">
+                        <img src="assets/img/proyectos/blogcine.jpg" alt="Blog de cine" class="imagenProyecto" />
+                        <div class="imagenOverlay" aria-hidden="true">
+                          <div class="overlayContent d-flex flex-column justify-content-between align-items-center">
+                            <div class="overlayText mt-2">
+                              <h6 class="overlayTitle fw-semibold mb-1">Blog de cine</h6>
+                              <p class="overlayDesc mb-0">Reseñas y ratings con búsqueda por géneros y sistema de
+                                entradas.</p>
+                            </div>
 
-                        <div class="mb-3 d-flex flex-wrap gap-2 justify-content-center">
-                          <span class="chipTecnologia"><i class="bi bi-filetype-js"></i> JS</span>
-                          <span class="chipTecnologia"><i class="bi bi-filetype-html"></i> HTML</span>
-                          <span class="chipTecnologia"><i class="bi bi-filetype-css"></i> CSS</span>
-                          <span class="chipTecnologia"><i class="bi bi-bootstrap"></i> Bootstrap</span>
-                          <span class="chipTecnologia"><i class="bi bi-git"></i> Git</span>
+                            <div class="overlayButtons d-flex gap-2 mb-3">
+                              <a href="#" class="btn btnAccion" aria-label="Abrir demo Blog de cine" target="_blank"
+                                rel="noopener">
+                                <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i>
+                              </a>
+                              <a href="#" class="btn btnAccionSecundaria" aria-label="Ver código Blog de cine"
+                                target="_blank" rel="noopener">
+                                <i class="bi bi-github" aria-hidden="true"></i>
+                              </a>
+                            </div>
+                          </div>
                         </div>
+                      </div>
 
-                        <div class="d-flex gap-2 mt-auto">
-                          <a href="#" class="btn btnAccion" aria-label="Abrir demo Blog de cine" target="_blank" rel="noopener"><i class="bi bi-box-arrow-up-right" aria-hidden="true"></i></a>
-                          <a href="#" class="btn btnAccionSecundaria" aria-label="Ver código Blog de cine" target="_blank" rel="noopener"><i class="bi bi-github me-1"></i> Código</a>
+                      <div class="card-body tarjetaBody d-flex flex-column align-items-center text-center">
+                        <div class="mb-3 d-flex flex-wrap gap-2 justify-content-center">
+                          <span class="chipTecnologia"><i class="devicon-javascript-plain colored"></i></span>
+                          <span class="chipTecnologia"><i class="devicon-html5-plain colored"></i></span>
+                          <span class="chipTecnologia"><i class="devicon-css3-plain colored"></i></span>
+                          <span class="chipTecnologia"><i class="devicon-bootstrap-plain colored"></i></span>
+                          <span class="chipTecnologia"><i class="devicon-git-plain colored"></i></span>
                         </div>
                       </div>
                     </div>
@@ -102,22 +151,37 @@
                 <div class="col-12 col-md-6 col-lg-4 d-flex">
                   <article class="card tarjetaProyecto w-100 h-100">
                     <div class="tarjetaInner">
-                      <img src="assets/img/proyectos/pokeapi.jpg" alt="PokeApi" class="imagenProyecto" />
-                      <div class="card-body tarjetaBody d-flex flex-column align-items-center text-center">
-                        <h6 class="fw-semibold mb-2">PokeApi</h6>
-                        <p class="mb-3">Explorador que consume la PokeApi con fichas detalladas y paginación.</p>
+                      <div class="imagenWrapper">
+                        <img src="assets/img/proyectos/pokeapi.jpg" alt="PokeApi" class="imagenProyecto" />
+                        <div class="imagenOverlay" aria-hidden="true">
+                          <div class="overlayContent d-flex flex-column justify-content-between align-items-center">
+                            <div class="overlayText mt-2">
+                              <h6 class="overlayTitle fw-semibold mb-1">PokeApi</h6>
+                              <p class="overlayDesc mb-0">Explorador que consume la PokeApi con fichas detalladas y
+                                paginación.</p>
+                            </div>
 
-                        <div class="mb-3 d-flex flex-wrap gap-2 justify-content-center">
-                          <span class="chipTecnologia"><i class="bi bi-filetype-js"></i> JS</span>
-                          <span class="chipTecnologia"><i class="bi bi-filetype-html"></i> HTML</span>
-                          <span class="chipTecnologia"><i class="bi bi-filetype-css"></i> CSS</span>
-                          <span class="chipTecnologia"><i class="bi bi-bootstrap"></i> Bootstrap</span>
-                          <span class="chipTecnologia"><i class="bi bi-git"></i> Git</span>
+                            <div class="overlayButtons d-flex gap-2 mb-3">
+                              <a href="#" class="btn btnAccion" aria-label="Abrir demo PokeApi" target="_blank"
+                                rel="noopener">
+                                <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i>
+                              </a>
+                              <a href="#" class="btn btnAccionSecundaria" aria-label="Ver código PokeApi"
+                                target="_blank" rel="noopener">
+                                <i class="bi bi-github" aria-hidden="true"></i>
+                              </a>
+                            </div>
+                          </div>
                         </div>
+                      </div>
 
-                        <div class="d-flex gap-2 mt-auto">
-                          <a href="#" class="btn btnAccion" aria-label="Abrir demo PokeApi" target="_blank" rel="noopener"><i class="bi bi-box-arrow-up-right" aria-hidden="true"></i></a>
-                          <a href="#" class="btn btnAccionSecundaria" aria-label="Ver código PokeApi" target="_blank" rel="noopener"><i class="bi bi-github me-1"></i> Código</a>
+                      <div class="card-body tarjetaBody d-flex flex-column align-items-center text-center">
+                        <div class="mb-3 d-flex flex-wrap gap-2 justify-content-center">
+                          <span class="chipTecnologia"><i class="devicon-javascript-plain colored"></i></span>
+                          <span class="chipTecnologia"><i class="devicon-html5-plain colored"></i></span>
+                          <span class="chipTecnologia"><i class="devicon-css3-plain colored"></i></span>
+                          <span class="chipTecnologia"><i class="devicon-bootstrap-plain colored"></i></span>
+                          <span class="chipTecnologia"><i class="devicon-git-plain colored"></i></span>
                         </div>
                       </div>
                     </div>
@@ -128,22 +192,76 @@
                 <div class="col-12 col-md-6 col-lg-4 d-flex">
                   <article class="card tarjetaProyecto w-100 h-100">
                     <div class="tarjetaInner">
-                      <img src="assets/img/proyectos/todo.jpg" alt="Todo list" class="imagenProyecto" />
-                      <div class="card-body tarjetaBody d-flex flex-column align-items-center text-center">
-                        <h6 class="fw-semibold mb-2">Todo list</h6>
-                        <p class="mb-3">Gestor de tareas con localStorage y filtros por estado.</p>
+                      <div class="imagenWrapper">
+                        <img src="assets/img/proyectos/todo.jpg" alt="Todo list" class="imagenProyecto" />
+                        <div class="imagenOverlay" aria-hidden="true">
+                          <div class="overlayContent d-flex flex-column justify-content-between align-items-center">
+                            <div class="overlayText mt-2">
+                              <h6 class="overlayTitle fw-semibold mb-1">Todo list</h6>
+                              <p class="overlayDesc mb-0">Gestor de tareas con localStorage y filtros por estado.</p>
+                            </div>
 
-                        <div class="mb-3 d-flex flex-wrap gap-2 justify-content-center">
-                          <span class="chipTecnologia"><i class="bi bi-filetype-js"></i> JS</span>
-                          <span class="chipTecnologia"><i class="bi bi-filetype-html"></i> HTML</span>
-                          <span class="chipTecnologia"><i class="bi bi-filetype-css"></i> CSS</span>
-                          <span class="chipTecnologia"><i class="bi bi-bootstrap"></i> Bootstrap</span>
-                          <span class="chipTecnologia"><i class="bi bi-git"></i> Git</span>
+                            <div class="overlayButtons d-flex gap-2 mb-3">
+                              <a href="#" class="btn btnAccion" aria-label="Abrir demo Todo list" target="_blank"
+                                rel="noopener">
+                                <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i>
+                              </a>
+                              <a href="#" class="btn btnAccionSecundaria" aria-label="Ver código Todo list"
+                                target="_blank" rel="noopener">
+                                <i class="bi bi-github" aria-hidden="true"></i>
+                              </a>
+                            </div>
+                          </div>
                         </div>
+                      </div>
 
-                        <div class="d-flex gap-2 mt-auto">
-                          <a href="#" class="btn btnAccion" aria-label="Abrir demo Todo list" target="_blank" rel="noopener"><i class="bi bi-box-arrow-up-right" aria-hidden="true"></i></a>
-                          <a href="#" class="btn btnAccionSecundaria" aria-label="Ver código Todo list" target="_blank" rel="noopener"><i class="bi bi-github me-1"></i> Código</a>
+                      <div class="card-body tarjetaBody d-flex flex-column align-items-center text-center">
+                        <div class="mb-3 d-flex flex-wrap gap-2 justify-content-center">
+                          <span class="chipTecnologia"><i class="devicon-javascript-plain colored"></i></span>
+                          <span class="chipTecnologia"><i class="devicon-html5-plain colored"></i></span>
+                          <span class="chipTecnologia"><i class="devicon-css3-plain colored"></i></span>
+                          <span class="chipTecnologia"><i class="devicon-bootstrap-plain colored"></i></span>
+                          <span class="chipTecnologia"><i class="devicon-git-plain colored"></i></span>
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+                </div>
+
+                <!-- NASA API (nuevo) -->
+                <div class="col-12 col-md-6 col-lg-4 d-flex">
+                  <article class="card tarjetaProyecto w-100 h-100">
+                    <div class="tarjetaInner">
+                      <div class="imagenWrapper">
+                        <img src="assets/img/proyectos/nasaapi.jpg" alt="NASA API" class="imagenProyecto" />
+                        <div class="imagenOverlay" aria-hidden="true">
+                          <div class="overlayContent d-flex flex-column justify-content-between align-items-center">
+                            <div class="overlayText mt-2">
+                              <h6 class="overlayTitle fw-semibold mb-1">NasaAPI</h6>
+                              <p class="overlayDesc mb-0">Consumidor de la API de la NASA: imágenes del día, búsqueda y
+                                galería.</p>
+                            </div>
+
+                            <div class="overlayButtons d-flex gap-2 mb-3">
+                              <a href="#" class="btn btnAccion" aria-label="Abrir demo NasaAPI" target="_blank"
+                                rel="noopener">
+                                <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i>
+                              </a>
+                              <a href="#" class="btn btnAccionSecundaria" aria-label="Ver código NasaAPI"
+                                target="_blank" rel="noopener">
+                                <i class="bi bi-github" aria-hidden="true"></i>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="card-body tarjetaBody d-flex flex-column align-items-center text-center">
+                        <div class="mb-3 d-flex flex-wrap gap-2 justify-content-center">
+                          <span class="chipTecnologia"><i class="devicon-javascript-plain colored"></i></span>
+                          <span class="chipTecnologia"><i class="devicon-html5-plain colored"></i></span>
+                          <span class="chipTecnologia"><i class="devicon-css3-plain colored"></i></span>
+                          <span class="chipTecnologia"><i class="devicon-git-plain colored"></i></span>
                         </div>
                       </div>
                     </div>
@@ -152,16 +270,24 @@
 
               </div>
             </div>
+
           </div>
 
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselProyectos" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Anterior</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselProyectos" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Siguiente</span>
-          </button>
+          <!-- CONTROLES CENTRADOS DE CARRUSEL (reemplaza los botones actuales) -->
+          <div class="carousel-controls-centered" aria-hidden="false">
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselProyectos" data-bs-slide="prev"
+              aria-label="Anterior">
+              <i class="bi bi-chevron-left" aria-hidden="true"></i>
+              <span class="visually-hidden">Anterior</span>
+            </button>
+
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselProyectos" data-bs-slide="next"
+              aria-label="Siguiente">
+              <i class="bi bi-chevron-right" aria-hidden="true"></i>
+              <span class="visually-hidden">Siguiente</span>
+            </button>
+          </div>
+
         </div>
       </div>
 

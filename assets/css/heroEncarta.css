@@ -13,18 +13,12 @@
   --footerHeight: 56px;
 }
 
-html,
 body {
-  height: 100%;
-}
-
-body {
-  margin: 0;
   font-family: 'Trebuchet MS', sans-serif;
   color: var(--colorTexto);
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  /* min-height: 100vh; */
 }
 
 #siteContent {
@@ -34,8 +28,8 @@ body {
 }
 
 .seccionPrincipal {
-  background: radial-gradient(1200px 600px at 40% 20%, var(--moradoClaro), var(--moradoPrincipal));
-  padding: 40px 20px;
+  background: radial-gradient(900px 600px at 40% 20%, var(--moradoClaro), var(--moradoPrincipal));
+  padding: 10px 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -264,5 +258,121 @@ body {
 
   .logoHeroBottom {
     font-size: 12px;
+  }
+}
+
+/* Ajustes específicos para pantallas ~375px (iPhone SE 2 / iPhone 8 / similares) */
+@media (max-width: 375px) {
+  .seccionPrincipal {
+    padding: 18px 12px;
+  }
+
+  .contenedorCategorias {
+    gap: 10px;
+    padding-inline: 10px;
+    max-width: 360px;
+    margin-inline: auto;
+  }
+
+  .columnaIzquierda,
+  .columnaDerecha {
+    gap: 8px;
+  }
+
+  .tarjetaCategoria {
+    width: min(210px, 94%);
+    height: 68px;
+    padding-inline: 8px;
+    border-width: 3px;
+    gap: .55rem;
+  }
+
+  .iconoCategoria {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+  }
+
+  .textoCategoria {
+    font-size: 14px;
+  }
+
+  .logoHeroImg {
+    height: clamp(74px, 22vw, 190px);
+  }
+
+  .logoHeroMain {
+    font-size: 14px;
+  }
+
+  .logoHeroBottom {
+    font-size: 18px;
+    line-height: 1;
+  }
+
+  .contenedorCentral {
+    width: 100%;
+    max-width: 360px;
+    padding: 6px 8px;
+    gap: 6px;
+  }
+}
+
+/* Ajustes finos para pantallas muy pequeñas ~320px (iPhone SE 1 / teléfonos antiguos) */
+@media (max-width: 320px) {
+  .seccionPrincipal {
+    padding: 14px 8px;
+  }
+
+  .contenedorCategorias {
+    gap: 8px;
+    padding-inline: 6px;
+    max-width: 300px;
+  }
+
+  .columnaIzquierda,
+  .columnaDerecha {
+    gap: 6px;
+  }
+
+  .tarjetaCategoria {
+    width: min(190px, 98%);
+    height: 62px;
+    padding-inline: 6px;
+    border-width: 3px;
+    gap: .45rem;
+  }
+
+  .iconoCategoria {
+    width: 36px;
+    height: 36px;
+    font-size: 16px;
+  }
+
+  .textoCategoria {
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.05;
+  }
+
+  .logoHeroImg {
+    height: clamp(64px, 28vw, 160px);
+  }
+
+  .logoHeroMain {
+    display: none;
+    /* ya lo tenías, se asegura aquí */
+  }
+
+  .logoHeroBottom {
+    font-size: 12px;
+    /* coincide con tu regla existente */
+  }
+
+  .contenedorCentral {
+    width: 100%;
+    max-width: 300px;
+    padding: 4px 6px;
+    gap: 4px;
   }
 }

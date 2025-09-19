@@ -178,13 +178,10 @@ textarea {
 .chipTecnologia i {
   display: inline-grid;
   place-items: center;
-  width: 26px;
-  height: 26px;
-  border-radius: 6px;
+  width: 30px;
+  height: 30px;
+  border-radius: 4px;
   font-size: .95rem;
-  background: linear-gradient(180deg, #ffd966, #ffc107);
-  color: #2b2b2b;
-  border: 1px solid rgba(0, 0, 0, 0.06);
   line-height: 1;
 }
 
