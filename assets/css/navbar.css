@@ -248,3 +248,61 @@ header.navbar {
         height: 32px;
     }
 }
+
+/* ------------------ Estilos para las Sugerencias del buscador ------------------ */
+/* NO quité nada de arriba; estas reglas son adicionales para el dropdown de sugerencias */
+
+.search-wrapper {
+  position: relative;
+  width: 100%;
+  /* el contenedor ya está en display:flex desde el formulario,
+     aquí sólo garantizamos el posicionamiento absoluto del dropdown */
+}
+
+.search-suggestions {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  width: 100%;
+  background: #ffffff;
+  border: 1px solid rgba(0,0,0,0.08);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  border-radius: 10px;
+  list-style: none;
+  margin: 0;
+  padding: 6px;
+  z-index: 9999; /* encima de la navbar */
+  max-height: 320px;
+  overflow: auto;
+}
+
+.search-suggestion-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.search-suggestion-item[aria-selected="true"],
+.search-suggestion-item:hover {
+  background: rgba(123,31,162,0.04);
+}
+
+.search-suggestion-title {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #222;
+}
+
+.search-suggestion-sub {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+/* Ajustes táctiles: mayor padding en pantallas pequeñas */
+@media (max-width: 576px) {
+  .search-suggestion-item { padding: 14px; }
+}
