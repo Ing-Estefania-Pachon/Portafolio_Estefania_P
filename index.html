@@ -1,17 +1,17 @@
-<!-- index.html -->
-
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Portafolio Encarta</title>
+
+    <!-- CSS externos -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
 
-
+    <!-- CSS locales -->
     <link rel="stylesheet" href="assets/css/navbar.css" />
     <link rel="stylesheet" href="assets/css/heroEncarta.css" />
     <link rel="stylesheet" href="assets/css/proyects.css" />
@@ -19,11 +19,9 @@
     <link rel="stylesheet" href="assets/css/habilidades.css" />
     <link rel="stylesheet" href="assets/css/about.css" />
     <link rel="stylesheet" href="assets/css/footer.css" />
-
 </head>
 
 <body>
-
     <div id="siteContent">
         <div id="navbar"></div>
         <div id="heroEncarta"></div>
@@ -35,11 +33,12 @@
 
     <div id="footer"></div>
 
+    <!-- SCRIPTS: todos como defer y en orden (loadTemplates primero, utils antes de los módulos que lo usan) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/loadTemplates.js"></script>
-    <script src="/js/searchSuggestions.js" defer></script>
-    <script src="js/Utils.js"></script>
-    <script src="js/Main.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/searchSuggestions.js"></script>
 </body>
 
 </html>

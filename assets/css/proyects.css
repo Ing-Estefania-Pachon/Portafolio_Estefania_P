@@ -151,23 +151,13 @@
     margin: 6px 0 0;
 }
 
-/* botones dentro del overlay (círculos) */
-.overlayButtons .btn {
-    width: 44px;
-    height: 44px;
-    padding: 0;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 999px;
-    font-size: 1.05rem;
-}
+/* botones dentro del overlay (círculos)
+   <-- Eliminé sus propiedades de tamaño/forma; dejé solo colores/bordes/hovers más abajo --> */
 
 /* ajustar los colores de los botones para que resalten en el overlay */
 .imagenOverlay .btnAccion {
     background: linear-gradient(90deg, var(--accentMorado2), var(--accentMorado1));
     color: #fff;
-    box-shadow: 0 6px 14px rgba(163, 77, 197, .18);
     border: none;
 }
 
@@ -175,10 +165,9 @@
     background: rgba(255, 255, 255, 0.07);
     color: #fff;
     border: 1px solid rgba(255, 255, 255, 0.12);
-    box-shadow: none;
 }
 
-/* efecto hover de los botones dentro del overlay */
+/* efecto hover de los botones dentro del overlay (se mantiene hover, eliminé transform si no quieres) */
 .imagenOverlay .btn:hover {
     transform: translateY(-3px);
 }
@@ -245,33 +234,16 @@
 }
 
 /* ---------- BOTONES GLOBALES ---------- */
-.btn:focus,
-.btn:active,
-.bi:focus {
-    outline: none !important;
-    box-shadow: none !important;
-}
-
-.btn:focus-visible {
-    outline: none !important;
-    box-shadow: 0 0 0 4px rgba(123, 31, 162, 0.12) !important;
-}
+/* <-- Eliminé focus/active custom (outline/box-shadow) para dejar comportamiento por defecto --> */
 
 .btnAccion,
 .btnAccionSecundaria {
-    border-radius: 8px;
-    padding: .45rem .8rem;
-    font-weight: 700;
-    display: inline-flex;
-    align-items: center;
-    gap: .5rem;
     border: none;
 }
 
 .btnAccion {
     background: linear-gradient(90deg, var(--accentMorado2), var(--accentMorado1));
     color: white;
-    box-shadow: 0 6px 14px rgba(163, 77, 197, .18);
 }
 
 .btnAccionSecundaria {
@@ -280,110 +252,114 @@
     border: 2px solid rgba(163, 77, 197, .14);
 }
 
-.btnAccion i,
-.btnAccionSecundaria i {
-    font-size: 1rem;
-}
-
-/* ---------- CONTROLES CENTRADOS (debajo del proyecto central) ---------- */
+/* ---------- CONTROLES CENTRADOS (debajo del proyecto central) */
 /* Contenedor centrado respecto a #carouselProyectos */
 #carouselProyectos {
-    position: relative;
-    /* ya lo tenías, sólo asegurar */
+    position: relative; /* importante para posicionamiento absoluto de los controles */
 }
 
+/* -------------- NUEVA ESTRATEGIA: colocación absoluta y determinista -------------- */
+/* el ancho del contenedor = 36 + 36 + 10 (gap) = 82px -> ajusta si cambias tamaños */
 .carousel-controls-centered {
     position: absolute;
     left: 50%;
-    transform: translateX(-50%);
-    bottom: -56px;
-    /* ajuste vertical por defecto (ajusta si quieres) */
-    z-index: 80;
-    display: flex;
-    gap: 12px;
-    align-items: center;
-    justify-content: center;
+    transform: translateX(-50%); /* centro exacto respecto al carrusel */
+    bottom: -10px; /* separación máxima de 10px respecto a la tarjeta */
+    z-index: 120; /* por encima de modal-footer */
+    width: 82px; /* ancho fijo que contiene ambos botones + gap */
+    height: 36px;
     pointer-events: auto;
+    /* eliminamos display:flex para evitar que reglas externas inviertan orden */
+    display: block;
+    /* limpieza defensiva */
+    margin: 0;
+    padding: 0;
 }
 
-/* Neutralizamos las reglas anteriores que posicionaban los controles por separado */
-#carouselProyectos .carousel-control-prev,
-#carouselProyectos .carousel-control-next {
-    left: auto !important;
-    right: auto !important;
-    margin-top: 0 !important;
-    position: relative !important;
-    bottom: auto !important;
-    transform: none !important;
-}
-
-/* Estilo visual de cada botón (círculo) dentro del contenedor */
+/* colocamos los botones en posiciones absolutas dentro del contenedor,
+   de modo que su colocación visual sea independiente del DOM o flex-direction */
 .carousel-controls-centered .carousel-control-prev,
 .carousel-controls-centered .carousel-control-next {
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
+    position: absolute;
+    top: 7vh;               /* idéntica alineación vertical */
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    background: rgba(0, 0, 0, 0.20);
-    border: 2px solid rgba(0, 0, 0, 0.20);
-    transition: transform .12s ease, background .12s ease;
+    margin: 0;
+    padding: 0;
+    line-height: 1;
     cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+    background: rgba(151, 46, 196, 0.829); /* morado suave */
+    border: 1px solid rgba(123,31,162,0.12);
+    transition: background .14s ease, transform .14s ease, box-shadow .14s ease;
+    -webkit-tap-highlight-color: transparent;
 }
 
-/* Icono dentro del botón */
+/* Prev a la izquierda absoluta, Next a la derecha absoluta */
+.carousel-controls-centered .carousel-control-prev { left: 0; }
+.carousel-controls-centered .carousel-control-next { right: 0; }
+
+/* Aseguramos que los iconos sean blancas y centradas */
 .carousel-controls-centered .carousel-control-prev i,
 .carousel-controls-centered .carousel-control-next i {
-    font-size: 22px;
-    color: #fff;
-    line-height: 1;
+    color: #fff !important;
+    font-size: 18px;
+    display: inline-block;
+    vertical-align: middle;
+    padding: 2px;
 }
 
-/* Hover / foco */
+/* Hover/focus: morado intenso (gradiente) y sutil elevación */
 .carousel-controls-centered .carousel-control-prev:hover,
 .carousel-controls-centered .carousel-control-next:hover,
 .carousel-controls-centered .carousel-control-prev:focus,
 .carousel-controls-centered .carousel-control-next:focus {
-    transform: scale(1.03);
-    background: rgba(0, 0, 0, 0.09);
+    transform: translateY(-3px) scale(1.03);
+    background: linear-gradient(90deg, var(--accentMorado2), var(--accentMorado1));
+    border-color: rgba(123,31,162,0.22);
+    box-shadow: 0 8px 20px rgba(123,31,162,0.12);
     outline: none;
 }
 
-/* Ajustes responsive: mover controles más cerca o más lejos según pantalla */
+/* Responsive: mantener proporciones y gap (ajustamos ancho contenedor) */
 @media (max-width: 768px) {
     .carousel-controls-centered {
-        bottom: -62px;
-        gap: 10px;
+        bottom: -10px;
+        width: 74px; /* 34 + 34 + 6 gap */
+        height: 34px;
     }
-
     .carousel-controls-centered .carousel-control-prev,
-    .carousel-controls-centered .carousel-control-next {
-        width: 40px;
-        height: 40px;
-    }
-
-    .carousel-controls-centered i {
-        font-size: 20px;
-    }
+    .carousel-controls-centered .carousel-control-next { width: 34px; height: 34px; }
+    .carousel-controls-centered .carousel-control-prev { left: 0; }
+    .carousel-controls-centered .carousel-control-next { right: 0; }
+    .carousel-controls-centered i { font-size: 16px; }
 }
 
 @media (max-width: 576px) {
     .carousel-controls-centered {
-        bottom: -70px;
-        gap: 8px;
+        bottom: -10px;
+        width: 72px; /* 32 + 32 + 8 gap */
+        height: 32px;
     }
-
     .carousel-controls-centered .carousel-control-prev,
-    .carousel-controls-centered .carousel-control-next {
-        width: 36px;
-        height: 36px;
-    }
+    .carousel-controls-centered .carousel-control-next { width: 32px; height: 32px; }
+    .carousel-controls-centered i { font-size: 15px; }
+}
 
-    .carousel-controls-centered i {
-        font-size: 18px;
-        color: #fff;
-    }
+/* Estilos personalizados para el footer del modal */
+.modal-footer {
+  justify-content: center;       /* centra horizontalmente el contenido */
+}
+
+/* Estilo del texto dentro del footer */
+.modal-footer .textoSutil {
+  font-size: 0.9rem;             /* más pequeño que el texto normal */
+  color: var(--colorTextoSecundario, #6c757d); /* tono gris o el que uses */
+  text-align: center;            /* centrado */
 }
 
 /* ========== AJUSTES MÍNIMOS PARA EL PROBLEMA DEL ESPACIO BLANCO LATERAL ========== */

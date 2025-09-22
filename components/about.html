@@ -70,7 +70,9 @@
 
         <h4 class="tituloContactame mt-2 mb-3">Contáctame</h4>
 
-        <form id="contactFormAcerca" class="formContacto needs-validation" novalidate>
+        <form id="contactFormAcerca" class="formContacto needs-validation" action="https://formspree.io/f/movkawge"
+          method="POST" accept-charset="UTF-8" novalidate>
+
           <div class="row g-3">
             <div class="col-12 col-md-6">
               <label for="contactName" class="form-label">Nombre</label>
@@ -92,8 +94,10 @@
               <div class="invalid-feedback">El mensaje no puede estar vacío.</div>
             </div>
 
-            <div class="col-12 text-end">
+            <!-- Campo oculto para desactivar el captcha -->
+            <input type="hidden" name="_captcha" value="false">
 
+            <div class="col-12 text-end">
               <button type="submit" class="btn btnAccion" aria-label="Enviar mensaje">Enviar mensaje</button>
             </div>
           </div>
