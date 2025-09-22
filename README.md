@@ -6,13 +6,6 @@
 
 ---
 
-## 🚀 Proyectos destacados
-
-- 🛒 [E-Commerce FullStack](https://github.com/Ing-Estefania-Pachon/proyecto-ecommerce)
-- 🌐 [Landing Page HTML + CSS](https://github.com/Ing-Estefania-Pachon/landing-page)
-- 📋 [Gestor de tareas](https://github.com/Ing-Estefania-Pachon/gestor-tareas)
-
----
 
 ## 🧠 Tecnologías que manejo
 
@@ -27,9 +20,9 @@
 
 ## 📫 ¿Dónde encontrarme?
 
-- 💼 [LinkedIn](https://www.linkedin.com/in/estefaniadev)
-- 💻 [Portafolio web](https://ing-estefania-pachon.github.io)
-- 📬 estefania.dev@email.com
+- 💼 [LinkedIn](https://www.linkedin.com/in/estefania-pachon-ing-fullstack/)
+- 💻 [Portafolio web](https://portafolioestefaniapachon.netlify.app/)
+- 📬 ing.estefaniapachon@gmail.com
 
 ---
 
